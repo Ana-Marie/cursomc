@@ -26,7 +26,7 @@ public class CategoriaResource {
 	public ResponseEntity<?> find( @PathVariable Integer id) { //ResponseEntity encapsula respostas para um requisição http
 		// path variable indica que o parametro vindo da requesição é passada para o metodo
 		
-		Categoria obj = service.buscar(id);
+		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -38,5 +38,13 @@ public class CategoriaResource {
 		
 		
 	}
+	@RequestMapping(value ="/{id}",method= RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Categoria obj, @PathVariable Integer id){
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+		
+	}
+	
 
 }

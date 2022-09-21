@@ -17,12 +17,12 @@ public class PedidoResource {
 	private PedidoService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) { // ResponseEntity encapsula respostas para um requisição
+	public ResponseEntity<Pedido> find(@PathVariable Integer id) { // ResponseEntity encapsula respostas para um requisição
 																// http
 		// path variable indica que o parametro vindo da requesição é passada para o
 		// metodo
 
-		Pedido obj = service.buscar(id);
+		Pedido obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 

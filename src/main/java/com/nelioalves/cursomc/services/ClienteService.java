@@ -14,7 +14,7 @@ public class ClienteService {
 	// o spring instancia esse que vc coloque objeto apartir essa notação
 	@Autowired    
 	private ClienteRepository repo;
-	public Cliente buscar(Integer id) {
+	public Cliente find(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado! ID: "+id+", Tipo: "+ Cliente.class.getName()));
 	}
