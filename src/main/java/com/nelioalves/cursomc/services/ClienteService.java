@@ -59,7 +59,7 @@ public class ClienteService {
 			repo.deleteById(id);
 
 		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possivél excluir porque há entidades realacionadas ");
+			throw new DataIntegrityException("Não é possivél excluir porque há pedidos realacionadas ");
 		}
 	}
 
